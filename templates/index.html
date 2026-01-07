@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>الدهابي | سعر الذهب</title>
+
+    <!-- ربط ملف الـ CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>💛 الدهابي</h1>
+
+    <div class="card">
+        <p>سعر الذهب (جرام)</p>
+        <span id="price">...</span>
+    </div>
+</div>
+
+<script>
+function loadPrice(){
+    fetch("/api/price")
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("price").innerText =
+          Number(data.gold_price).toLocaleString("en-US") + " جنيه";
+      });
+}
+
+loadPrice();
+setInterval(loadPrice, 60000);
+</script>
+
+</body>
+</html>
