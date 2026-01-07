@@ -13,9 +13,8 @@ def get_gold_price():
 
     # سعر الذهب العالمي
     gold_url = "https://data-asg.goldprice.org/dbXRates/USD"
-    gold_response = session.get(gold_url, timeout=3)
-    gold_data = gold_response.json()
-    gold_price_usd = gold_data["items"][0]["xauPrice"]
+    gold_response = session.get(gold_url, timeout=5)
+    gold_price_usd = gold_response.json()["items"][0]["xauPrice"]
 
     # سعر الدولار مقابل الجنيه
     alsoug_url = "https://www.alsoug.com/currency"
@@ -24,22 +23,23 @@ def get_gold_price():
     usd_input = soup.find("input", id="usd-sdg-alternate")
     usd_to_sdg = int(usd_input["value"])
 
-    # الحساب
-    gold_price = round((((gold_price_usd / 31.1) * 0.875) * usd_to_sdg))
+    # الحساب النهائي (بدون قسمة على 1000)
+    gold_price = round(((gold_price_usd / 31.1) * 0.875) * usd_to_sdg)
     return gold_price
 
 
 @app.route("/")
 def home():
-    return "الدهابي شغال ✅"
+    return render_template("index.html")
 
 
 @app.route("/api/price")
 def price():
     return jsonify({
-        "gold_price": get_gold_price()  # رقم فقط
+        "gold_price": get_gold_price()
     })
 
 
+# ⚠️ لا تستخدم debug في Render
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
