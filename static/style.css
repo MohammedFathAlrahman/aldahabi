@@ -11,9 +11,15 @@ body {
     text-align: center;
 }
 
+.logo {
+    width: 50px;   
+    height: auto;
+}
+
 h1 {
     margin-bottom: 30px;
     font-size: 36px;
+    display: inline-flex;
 }
 
 .card {
@@ -34,4 +40,9 @@ h1 {
     margin-top: 10px;
     font-size: 28px;
     font-weight: bold;
+}
+
+.info {
+    font-size: 18px;
+    color: #ccc;
 }
