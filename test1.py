@@ -31,7 +31,7 @@ def get_gold_price():
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return "الدهابي شغال ✅"
 
 
 @app.route("/api/price")
