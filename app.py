@@ -17,11 +17,13 @@ def get_gold_price():
     gold_price_usd = gold_response.json()["items"][0]["xauPrice"]
 
     # سعر الدولار مقابل الجنيه
-    alsoug_url = "https://www.alsoug.com/currency"
-    alsoug_response = session.get(alsoug_url, timeout=5)
-    soup = BeautifulSoup(alsoug_response.text, "lxml")
-    usd_input = soup.find("input", id="usd-sdg-alternate")
-    usd_to_sdg = int(usd_input["value"])
+    # alsoug_url = "https://www.alsoug.com/currency"
+    # alsoug_response = session.get(alsoug_url, timeout=5)
+    # soup = BeautifulSoup(alsoug_response.text, "lxml")
+    # usd_input = soup.find("input", id="usd-sdg-alternate")
+    # usd_to_sdg = int(usd_input["value"])
+    usd_to_sdg = 3600  # مثال: سعر الدولار بالجنيه
+
 
     # الحساب النهائي (بدون قسمة على 1000)
     gold_price = round(((gold_price_usd / 31.1) * 0.875) * usd_to_sdg)
