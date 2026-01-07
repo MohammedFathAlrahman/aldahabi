@@ -30,7 +30,7 @@ body {
     margin: 0;
     line-height: 1;  /* مهم عشان النص ما ينزل */
     margin-bottom: 30px;
-    font-size: 36px;
+    font-size: 66px;
     display: inline-flex;
 }
 
@@ -43,7 +43,7 @@ body {
 
 .card p {
     margin: 0;
-    font-size: 18px;
+    font-size: 48px;
     color: #ccc;
 }
 
@@ -55,6 +55,6 @@ body {
 }
 
 .info {
-    font-size: 18px;
+    font-size: 30px;
     color: #ccc;
 }
