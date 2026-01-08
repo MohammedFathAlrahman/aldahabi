@@ -27,7 +27,7 @@ def get_gold_price():
 
     # الحساب النهائي (بدون قسمة على 1000)
     gold_price = round(((gold_price_usd / 31.1) * 0.875) * usd_to_sdg)
-    return gold_price
+    return gold_price - 40000
 
 
 @app.route("/")

@@ -10,16 +10,20 @@
 <body>
 
 <div class="container">
-    <div class="main">
-        <h1>الدهابي</h1>
-        <img src="static/logo.png" alt="شعار الدهابي" class="logo">
+    <div class="card">
+    <div class="card-logo">
+        <img src="static/logo.png" alt="logo">
+    </div>
+    <div class="card-content">
+        <p>سعر جرام الذهب :<p>
+        <span id="price">...<span>
+    </div>
     </div>
 
-    <div class="card">
-        <p>سعر الذهب (جرام)</p>
-        <span id="price">...</span>
+    <div class="cont">
+
+        <p class="info">هذا الموقع يعرض سعر الذهب لحظة بلحظة , السعر المكتوب هو لجرام الذهب عيار الحكومة (875) بالعملة المحلية.</p>
     </div>
-    <p class="info">هذا الموقع يعرض سعر الذهب لحظة بلحظة , السعر المكتوب هو لجرام الذهب عيار الحكومة (875) , بالعملة المحلية </p>
 </div>
 
 <script>
@@ -28,7 +32,7 @@ function loadPrice(){
       .then(res => res.json())
       .then(data => {
         document.getElementById("price").innerText =
-          Number(data.gold_price).toLocaleString("en-US") + " جنيه";
+          Number(data.gold_price).toLocaleString("en-US") + " جنيه سوداني";
       });
 }
 
