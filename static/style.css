@@ -57,7 +57,10 @@ body::before {
 body {
     margin: 0;
     font-family: 'MontserratArabic', sans-serif;
-    background: url("/static/logo.png") center / cover no-repeat;
+    background: url("/static/logo.png");
+    background-size: contain;   /* يخلي الصورة كاملة */
+    background-repeat: no-repeat;
+    background-position: center;
     position: relative;
 }
 
